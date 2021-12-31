@@ -1,0 +1,21 @@
+.table-border {
+  border: $bs-m solid black;
+  border-collapse: collapse;
+}
+.base-table-item {
+  @extend .table-border;
+  padding: $s-s;
+  text-align: left;
+}
+.regular-table {
+  width: 40%;
+  @extend .table-border;
+  color: $matte-black;
+  th {
+    @extend .base-table-item;
+    background-color: $gold;
+  }
+  td {
+    @extend .base-table-item;
+  }
+}
