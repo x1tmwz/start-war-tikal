@@ -9,6 +9,7 @@
 }
 .regular-table {
   width: 40%;
+  margin: $s-xl;
   @extend .table-border;
   color: $matte-black;
   th {
@@ -17,5 +18,6 @@
   }
   td {
     @extend .base-table-item;
+    color: $gold;
   }
 }

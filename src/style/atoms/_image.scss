@@ -1,0 +1,16 @@
+.s-size {
+  width: $s;
+  height: $s;
+}
+.m-size {
+  width: calc($s * 2);
+  height: calc($s * 2);
+}
+.l-size {
+  width: calc($s * 3);
+  height: calc($s * 3);
+}
+.xl-size {
+  width: calc($s * 4);
+  height: calc($s * 4);
+}

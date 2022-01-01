@@ -1,0 +1,7 @@
+.star-wars-logo{
+    border: $bs-l solid $gold;
+    @extend .m-size;
+    background-color: black;
+    margin: $s-s;
+    margin-bottom: $s-xl;
+}

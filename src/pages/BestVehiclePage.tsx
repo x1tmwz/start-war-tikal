@@ -6,58 +6,58 @@ import StarWars from "../services/StarWars.service";
 import Table from "../components/patterns/Table";
 import Chart from "../components/patterns/Chart";
 import Loading from "../components/patterns/Loading";
-
+import StarWarsImage from "../components/patterns/StarWarsImage";
 const BestVehiclePage = () => {
+  const [loading, setLoading] = useState<boolean>(false);
   const [tableData, setTableData] = useState<{
     tableHeaders: any;
     values: any;
   }>({
-    tableHeaders: [
-      { text: "food", dataField: "type" },
-      { text: "taste", dataField: "score" },
-    ],
-    values: [
-      { type: "pizza", score: 200 },
-      { type: "Hamburger", score: 300 },
-    ],
+    tableHeaders: [],
+    values: [],
   });
-
   const [chartData, setChartData] = useState<
     Array<{ value: number; name: string }>
-  >([
-    { value: 5000, name: "pizza" },
-    { value: 2500, name: "hamburger" },
-    { value: 3000, name: "salad" },
-    { value: 500, name: "cola" },
-  ]);
+  >([]);
   useEffect(() => {
     const starWars = new StarWars(customFetch);
     const asyncFun = async () => {
-      const tData =
-        await starWars.getVehicleNamesWithTheHighestSumOfPopulation();
-      const tableHeaders = [
-        { text: "Vehicle name with the largest sum", dataField: "vehicle" },
-        {
-          text: "Related home planets and their respective population",
-          dataField: "planets",
-        },
-        { text: "Related pilot names", dataField: "pilots" },
-      ];
-      const cData = await starWars.getAllSpecificPlanets();
-      setChartData(() => cData);
-      setTableData(() => ({ tableHeaders, values: [tData] }));
+      setLoading(true);
+      try {
+        const tData =
+          await starWars.getVehicleNamesWithTheHighestSumOfPopulation();
+        const tableHeaders = [
+          { text: "Vehicle name with the largest sum", dataField: "vehicle" },
+          {
+            text: "Related home planets and their respective population",
+            dataField: "planets",
+          },
+          { text: "Related pilot names", dataField: "pilots" },
+        ];
+        const cData = await starWars.getAllSpecificPlanets();
+        setChartData(() => cData);
+        setTableData(() => ({ tableHeaders, values: [tData] }));
+      } catch (e) {
+        alert(e);
+      } finally {
+        setLoading(false);
+      }
     };
-    //asyncFun();
+    asyncFun();
   }, []);
   return (
     <MainTemplate>
-      <Title Type="h1">Vehicle</Title>
-      <Loading isLoading={true} />
-      <Table
-        tableHeaders={tableData.tableHeaders}
-        values={tableData.values}
-      ></Table>
-      <Chart data={chartData} />
+      <StarWarsImage />
+      <Loading isLoading={loading} />
+      {loading || (
+        <>
+          <Table
+            tableHeaders={tableData.tableHeaders}
+            values={tableData.values}
+          ></Table>
+          <Chart data={chartData} />
+        </>
+      )}
     </MainTemplate>
   );
 };
