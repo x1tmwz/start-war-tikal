@@ -22,6 +22,14 @@ Notes-
 For api calls i build service that call star wars service and use fecth
 
 
+Things to imporve -
+Design - make a diffrent design for small screens 
+Imporve the chart to use grid
+Improve scss file organized
+Typescript - make it more organized
+
+
+
 
 
 
