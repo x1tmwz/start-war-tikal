@@ -10,18 +10,13 @@ const Loading = ({ isLoading }: LoadingProps) => {
   return (
     <>
       {isLoading ? (
-        <div>
-          <Image
-            src={"./src/assets/icons/loading.gif"}
-            alt={""}
-            className="l-size"
-          />
-          <Title Type="h2" className="star-wars">
-            Loading...
-          </Title>
-        </div>
+        <Image
+          src={"./src/assets/icons/loading.gif"}
+          alt={"Loading..."}
+          className="l-size"
+        />
       ) : (
-        <></>
+        ""
       )}
     </>
   );

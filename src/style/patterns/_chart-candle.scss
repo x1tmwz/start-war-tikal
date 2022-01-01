@@ -1,6 +1,20 @@
 .chart-candle {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media only screen and (max-width:$small-phone-breakpoint ) {
+    align-items: flex-start;
+    width: calc($s-xl * 4);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    .candle{
+        align-self: center;
+    }
+  }
+
+
+  
+ 
 }
