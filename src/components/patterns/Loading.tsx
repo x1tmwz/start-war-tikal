@@ -10,7 +10,7 @@ const Loading = ({ isLoading }: LoadingProps) => {
   return (
     <>
       {isLoading ? (
-        <>
+        <div>
           <Image
             src={"./src/assets/icons/loading.gif"}
             alt={""}
@@ -19,7 +19,7 @@ const Loading = ({ isLoading }: LoadingProps) => {
           <Title Type="h2" className="star-wars">
             Loading...
           </Title>
-        </>
+        </div>
       ) : (
         <></>
       )}

@@ -6,6 +6,7 @@ import StarWars from "../services/StarWars.service";
 import Table from "../components/patterns/Table";
 import Chart from "../components/patterns/Chart";
 import Loading from "../components/patterns/Loading";
+import Image from "../components/atoms/Image";
 
 const BestVehiclePage = () => {
   const [tableData, setTableData] = useState<{
@@ -51,7 +52,8 @@ const BestVehiclePage = () => {
   }, []);
   return (
     <MainTemplate>
-      <Title Type="h1">Vehicle</Title>
+      <Image src="./src/assets/icons/star-wars-logos-icons.png" alt="Star Wars" className={"xl-size"} />
+
       <Loading isLoading={true} />
       <Table
         tableHeaders={tableData.tableHeaders}
